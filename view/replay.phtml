@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Collaborative Doodle Pad - Sneffel</title>
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/replay.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" media="screen" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/resources/css/colorpicker.css" />
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+				<script src="/resources/excanvas.js"></script>
+		<![endif]--> 
+		
+		
+
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery-ui.js" ></script>
+		<script type="text/javascript" src="/resources/jquery.preload.js" ></script>
+
+		
+		<script type="text/javascript" src="/resources/swfobject.js"></script>
+		<script type="text/javascript" src="/resources/FABridge.js"></script>
+		<script type="text/javascript" src="/resources/web_socket.js"></script>		
+		<script type="text/javascript" src="/resources/DoodleBoard.js" ></script>
+		<script type="text/javascript" src="/resources/Replay.js" ></script>
+		<script>
+			var roomId=<?=$roomId?>;
+			var picturesLoaded=false;
+			function startPreload()
+			{
+				var urls=<?=$imgText?>;
+				$.preload(urls,{onFinish:function(){
+					picturesLoaded=true;
+					if(socket.readyState ==1)
+						socket.send('{"type":"SYSreplayBoard","roomId":'+roomId+'}');
+					$('#mask, .window').hide();
+				}});
+			}
+		</script>
+	<?php include "google.phtml"; ?></head>
+<header>
+			<h1 class="logo">Sneffel (<span>virtual whiteboard</span>)</h1>
+			<h1>Replay people's earlier work on this whiteboard.</h1>
+		</header>
+				<!--[if lt IE 9]>
+				<strong>Sneffel requires a browser that supports the Canvas tag and WebSockets, such as Firefox, Chrome, or Safari.</strong>
+				<![endif]--> 			
+		<div id="controls">
+	
+			<div id="drawPadBox">				
+				<canvas id="drawPad" width="2000" height="2000">
+					no canvas support
+				</canvas>
+			</div>
+			<div class="bottomControls">
+				<button id="restart">Start over!</button>
+				<span id="marker">0&#37; Complete.</span>
+			</div>
+		</div>
+		
+					<footer>
+			<nav>			
+				<ul>			
+						<li>  
+							<a href="/home">home</a>
+						</li>
+
+						<li>  
+							<a href="/<?=$roomId?>">back to board</a>
+						</li>
+
+
+
+				
+					
+				</ul>		
+			</nav>				
+				
+			<div id="invite">
+				You can share this animation: <input style="width:280px" readonly="readonly" value="http://www.sneffel.com/replay/<?=$roomId?>" />
+				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.sneffel.com%2Freplay%2F<?=$roomId?>&amp;layout=button_count&amp;show_faces=true&amp;width=280&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:280px; height:21px;" allowTransparency="true"></iframe>
+			</div>
+	
+			<div id="embed">
+				Embed code:<br/>
+				<textarea type="text" readonly="readonly" rows="2" cols="35"><?=htmlspecialchars($embedText)?></textarea> 
+			</div>	
+			
+				<?php include "copy.inc.phtml"; ?>					
+		</footer>
+				<div id="views">
+   				This board has been replayed <strong><?=$obj->views?></strong> time<?=($obj->views==1) ? "" : "s"?>.
+			</div>		
+		
+		<div id="boxes">		
+
+			<div id="error" class="window">
+				<h1>Oops.</h1>
+				<p id="errMsg">Something has went terribly wrong.  Please try again. Sorry.</p>
+
+			</div>
+						<div id="loading" class="window">
+				Sneffel is loading your whiteboard.
+			</div>
+			
+			<div id="mask"></div>  
+		</div>
+
+
+
+
+
+	</body> 
+	
+</html>

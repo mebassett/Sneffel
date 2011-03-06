@@ -1,0 +1,16 @@
+div.board
+{
+	background-color:#ffdd8d;
+	padding:8px;
+	margin-bottom:16px;margin-top:8px;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+div.board > h2 
+{
+	font-size:1.2em;margin-top:0px;
+}
+div.board input
+{
+	width:45px;margin-left:4px;
+}

@@ -1,0 +1,39 @@
+<?php if(count($userBoards) > 0) { ?>
+	<h2>Your boards:</h2>
+	
+		<?php foreach($userBoards as $item) { ?>
+			<a href="#board<?=$item->id?>" class="boardClick"><?=($item->name) ? $item->name : "Board #".$item->id?></a><br/>
+			
+			<div class="board" id="board<?=$item->id?>">
+					<?php if(!$item->name) $bName = "Board #".$item->id; else $bName=$item->name?>
+					<h2><?=$bName?></h2>
+					
+					<span>
+					Embed Codes:<br/>
+			<label for="width<?=$item->id?>">Width</label><input type="text" name="width<?=$item->id?>" id="width<?=$item->id?>" value="500" onchange="updateEmbed(<?=$item->id?>)" />
+			<label for="height<?=$item->id?>">Height</label><input type="text" name="height<?=$item->id?>" id="height<?=$item->id?>" value="500" onchange="updateEmbed(<?=$item->id?>)" /><br/>
+			
+			<textarea id="embedText<?=$item->id?>" rows="5" cols="80" readonly="readonly"><?=$item->getEmbed(500,500)?></textarea><br/>
+			
+					
+					</span>
+					
+					<a href="<?=$item->getNameUrl()?>">View</a> 
+					- <a href="/editBoard?boardId=<?=$item->id?>">Edit</a>
+					 
+					<?php if($item->backgroundColor){?>
+						- <a href="/dashboard?setDefault=<?=$item->id?>">Restore Default Look</a>
+					<?php } ?>
+								
+				- <a href="/export?boardId=<?=$item->id?>">Export as PNG</a>
+				- <a href="/clear?boardId=<?=$item->id?>">Clear</a><br/>
+					<?php if($item->expireDate > time()) { ?> 
+						Expires in <?=$item->getTimeLeft()?>. <a href="/reactivate?boardId=<?=$item->id?>">Extend</a>					
+					<?php }else{ ?>
+						Expired <a href="/reactivate?boardId=<?=$item->id?>">Re-activate</a>
+					<?php } ?>
+				- <?=$item->replayLeft?> Replays Left.  <a href="/addReplay?boardId=<?=$item->id?>">Add more</a>
+			</div>
+		<?php }?>
+	
+<?php } ?>

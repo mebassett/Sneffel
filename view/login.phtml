@@ -1,0 +1,145 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Signup | Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+		
+		<style type="text/css">
+			div {text-align: left;overflow: auto;}
+
+			div > article > form
+			{
+				
+				
+				
+				width:350px;
+				margin-left:0;
+				float:left;
+				border-right: 1px solid #adbbd2;
+				
+				
+			}
+			div > section {margin-top:30px;width:100%;float:left;}
+			div > article > aside
+			{
+				
+				padding-left:10px;
+				width:420px;
+				float:left;
+				font-size: 1.2em;
+			}
+			div > article > aside h1
+			{
+				margin-top:0;margin-bottom:0;
+				
+			}
+			div > article > aside p, div > article > aside li
+			{
+				margin-top:8px;margin-bottom:8px;
+				
+			}
+			
+			div > article > form input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;
+				margin-bottom:16px;
+				
+			}
+			div > article > form label
+			{
+				display:block;
+				font-size: 1.4em;
+			}
+			p.error{color:red;}
+		</style>
+		
+
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>the beta</span>)</h1>
+			<h1>Changing online education.</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+			
+			<article>
+				
+
+				<form action="login" method="post">
+				<?php if($errStr) { ?> 
+								<p class="error"><strong>Error: <?=$errStr?></strong></p>	
+								<?php }?>
+						<label for="email">email</label>
+						<input id="email" name="email" /><br/>
+
+						<label for="password">password</label>
+						<input id="password" name="password" type="password" /><br/><br/>
+
+						<input type="submit" name="login" value="Login" class="button"/>		
+			
+			</form>
+	 			
+	 				<aside>
+	 			
+	 					<h1>Don't have an account?</h1>
+	 					<p><a href="/signup">Signup</a> now for free.</p>
+	 					<p>Once you have your account, you can use SneffelCredits to:
+	 						<ul>
+	 							<li>Claim, name and moderate your whiteboards.</li>	 							
+	 							<li>Export images from your whiteboards.</li>
+	 							<li>Extend the life of your whiteboards.</li>
+	 							<li>Add more replay views.</li>
+	 							<li>Create custom-branded whiteboards for use in your websites.</li>
+	 						</ul>	 							
+	 					</p>
+	 					<p>Signing up is <strong>absolutely free</strong>. Sneffel won't spam you or sell your contact information.</p>
+	 				</aside>
+	 			
+ 			
+ 			</article>
+ 			
+ 		
+ 	
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

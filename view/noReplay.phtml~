@@ -1,0 +1,82 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Collaborative Doodle Pad - Sneffel.com</title>
+		
+		<meta name="description" content="Sneffel lets you draw, brainstorm, collaborate, or just have fun with a simple, easy to use whiteboard." />
+		<meta name="keywords" content="real time collaboration, whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<img src="/images/header.gif" alt="Sneffel (Virtual Paper)"/>
+			<h1>Doodle, collaborate, or just have fun with this simple, easy to use whiteboard.</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+		
+		
+<h1>Oops.</h1>
+<h2>This board is out of replays.</h2>
+
+
+			<p>You can add <strong>25 replays</strong> to this board for $5 USD via PayPal.</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="GXNZUNZFBVGJL">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="SneffelAdd25">
+<input type="hidden" name="amount" value="5.00">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="button_subtype" value="services">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="rm" value="1">
+<input type="hidden" name="return" value="http://www.sneffel.com/">
+<input type="hidden" name="cancel_return" value="http://www.sneffel.com/">
+<input type="hidden" name="tax_rate" value="0.000">
+<input type="hidden" name="shipping" value="0.00">
+<input type="hidden" name="custom" value="<?=$board->id?>">	
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

@@ -1,0 +1,78 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Report a Bug | Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>changing online education</span>)</h1>
+			
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+		
+			<h1>Report Bugs</h1>
+			<p>Sneffel not working correctly?  Send me a message and I'll take care of it ASAP:</p>
+			<?=$errStr?>
+			<form action="/bug" method="post">
+            	<table style=" padding:15px;">
+                	<tr>
+                    	<td align="left" valign="top">Full Name</td><td colspan="2"><input name="name" size="28"  /></td>
+
+                    </tr>
+                	<tr>
+                    	<td align="left" valign="top">Email</td><td colspan="2"><input name="email" size="28" /></td><td>Sneffel won't spam you or give out your address.</td>
+                    </tr>
+
+                	<tr>
+                    	<td align="left" valign="top">The Problem:</td><td colspan="2"><textarea name="message" cols="28" rows="10"></textarea></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2" align="center"><input type="submit" name="push" value="Send"/></td><td>&nbsp;</td>
+                    </tr>
+                </table>
+				<input type="hidden" name="commentType" value="bug"/>
+			
+			</form>
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+				<?php include "copy.inc.phtml"; ?>					
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

@@ -1,0 +1,99 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Board Creator | Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/boardCreator.js" ></script>
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+		<style type="text/css">
+			div.main > input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;
+				margin-bottom:16px;
+				
+			}
+			div.main > label
+			{
+				display:block;
+				font-size: 1.4em;
+				
+				margin-top:10px;margin-right:8px;
+			}		
+			div.main > blockquote
+			{
+				color:#828282;
+			}
+		</style>
+
+
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>the beta</span>)</h1>
+			<h1>Changing online education.</h1>
+
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+			<h1>New Whiteboard</h1>
+			<p>Your whiteboard will expire (be deactivated) in 24 hours. You can use the following URL's to access it:</p>
+			
+			<p>
+			<blockquote>
+				<?=$newBoard->getNameUrl()?><br/>
+				http://www.sneffel.com/<?=$newBoard->id?>
+			</blockquote>
+			</p>
+			
+			<p>Embed Codes:</p>
+			<label for="width">Width</label><input type="text" name="width" id="width" value="500" onchange="updateEmbed(<?=$newBoard->id?>)" /><br/>
+			<label for="height">Height</label><input type="text" name="height" id="height" value="500" onchange="updateEmbed(<?=$newBoard->id?>)" /><br/>
+			
+			<textarea id="embedText" rows="5" cols="100" readonly="readonly"><?=$newBoard->getEmbed(500,500)?></textarea>
+			
+			
+		
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+	<iframe id="formHelper" onload="onHelperLoad();" name="formHelper" style="margin-left:-10000px;display:none;visibility:hidden;height:1px;" on></iframe>
+
+	
+	</body> 
+	
+</html>

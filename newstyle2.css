@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "headerNav";
+  src: url(/resources/aristalight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "myfont2";
+  src: url(/resources/LondonBetween.ttf) format("truetype");
+}
+body{
+	margin:0; padding:0;
+	font-family:  "myfont2",Helvetica, sans-serif;
+	text-align: center; 
+	color:#ffffff;
+	background-color:#8adaf3;
+	height:100%;width:100%;}
+header{
+	padding:0;
+}
+header > img{padding-top:16px;}
+header > h1 {
+	font-size:16px; margin:0; padding-bottom:16px;;
+}
+
+body > div.main {font-family:"myfont2",Helvetica, sans-serif;	
+width:940px; color:#000000; background-color:#ffffff;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;margin:auto;padding:20px;
+}
+
+
+footer
+{
+	
+	width:100%;
+	text-align:center;
+}
+header > nav
+{
+	font-family: "headerNav",verdana, sans-serif;
+}
+
+header > nav > ul
+{
+	margin: 15px 15px 15px 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+header > nav > ul > li
+{
+	display:inline;			
+}
+
+header > nav a, header > nav a:visited
+{
+	color: #19A0CC;
+	margin-left:10px;
+	padding:8px;
+	font-size:1.4em;
+	background-color:#C9EDF9;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+header > nav a:hover
+{
+	color: #0F5F79;
+	background-color:#19A0CC;
+} 
+
+
+footer > p
+{
+	margin:0px;
+	padding:5px;
+	font-size: 0.8em;
+}
+footer > p >  a, footer > p > a:visited
+{
+	color: #19A0CC;
+	
+}
+footer > p > a:hover
+{
+	color: #0F5F79;
+}
+			div {text-align: left;}
+			section.credits p
+			{
+				font-size:1.4em;
+			}
+			section.credits strong
+			{
+				background-color:#19A0CC;
+				padding:8px 5px 3px 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+			}
+			a.claim, a.claim:visited {	color: #19A0CC;}
+			section.credits a, section.credits a:visited
+			{
+				font-family: "headerNav",verdana, sans-serif;
+				color: #19A0CC;
+				margin-left:10px;
+				padding:8px;
+				
+				background-color:#C9EDF9;
+					-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+
+			}
+			section.credits a:hover
+			{
+				color: #0F5F79;
+				background-color:#19A0CC;
+			} 	
+
+
+			p.error{color:red;}
+#customerService{position:absolute;top:10px;right:10px;width:300px;background-color:#19A0CC;padding:5px;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;color:#ffffff;
+	}
+
+em{background-color:#ffdd8d;}

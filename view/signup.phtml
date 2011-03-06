@@ -1,0 +1,189 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Signup | Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+		
+		<style type="text/css">
+			div {text-align: left;overflow: auto;}
+			
+
+			div > article > form
+			{
+				
+				
+				
+				width:400px;
+				margin-left:0;
+				float:left;
+				border-right: 1px solid #adbbd2;
+				
+				
+			}
+			div > section {margin-top:30px;width:100%;float:left;}
+			div > article > aside
+			{
+				
+				padding-left:10px;
+				width:500px;
+				float:left;
+				font-size: 1.2em;
+			}
+			div > article > aside h1
+			{
+				margin-top:0;margin-bottom:0;
+				
+			}
+			div > article > aside p, div > article > aside li
+			{
+				margin-top:8px;margin-bottom:8px;
+				
+			}
+			
+			div > article > form input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;
+				margin-bottom:16px;
+				
+			}
+			div > article > form label
+			{
+				display:block;
+				font-size: 1.4em;
+			}
+			p.error{color:red;}
+		</style>
+		
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script>
+			$(document).ready(function() 
+			{				
+				$("#priceList").hide();
+				$("#pricing").click(function (e){					
+					e.preventDefault(); 
+					$("#priceList").slideToggle('slow');
+				});
+				$("#domain").change(function (e){
+					e.preventDefault();
+					var newText = $(this).val().replace(/ /g,'');
+					$(this).val(newText);
+					$(".schoolTag").html(newText);
+				});
+			});
+		</script>
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>changing online education</span>)</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+			<h1>SneffelSchool Signup - Step 1 of 3</h1>
+
+			<article>
+				
+					<form action="signup" method="post">
+								<?php if($errStr) { ?> 
+								<p class="error"><strong>Error: <?=$errStr?></strong></p>	
+								<?php }?>
+
+								<label for="schoolName">Your School Name</label>
+								<input id="schoolName" name="schoolName" value="<?=$schoolName?>"/>
+
+								<label for="domain">URL</label>
+								<input id="domain" name="domain" value="<?=$domain?>"/>
+								http://<span class="schoolTag">yourschool</span>.sneffel.com<br/><br/>
+
+									<label for="captcha">Prove you're not a robot:<br/>What's <?=$captchaString ?>?</label>
+								<input id="captcha" name="captcha" /><br/>
+	
+								
+								
+								<input type="submit" name="signup" value="Step 2" class="button"/>		
+						
+					</form>
+				
+	 			
+	 				<aside>
+	 			
+	 					<h1 style="text-align:left;">Signup Now</h1>
+	 					<p>And get a 14 day free trial</p>
+	 					<p>With SneffelSchool, you can:
+	 						<ul>
+	 							<li>Access at <em><span class="schoolTag">yourschool</span>.sneffel.com</em> with your school's own logo.</li>	 							
+	 							<li>Create unlimited SneffelBoards.</li>
+	 							<li>Embed boards into existing e-learning platforms.</li>
+	 							<li>Record and replay sessions on SneffelBoards.</li>
+	 						</ul>	 					
+	 					</p>
+						
+	 					<p>SneffelSchools cost $250USD for 3 months, but you can try it <em>absolutely free</em> for 14 days.</p>
+	 					<p>Coming Soon:
+	 						<ul>
+	 							<li>REST-ful API for tighter integration with existing e-learning platforms.</li>	 							
+	 							<li>User, student, and teacher Administration.</li>
+	 							<li>Support for mobile devices, including iPad and iPhone.</li>
+	 						</ul>	 					
+	 					</p>
+	 				</aside>
+	 			
+ 			
+ 			</article>
+ 			
+
+ 			
+ 	
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+<!-- Google Website Optimizer Conversion Script -->
+<script type="text/javascript">
+if(typeof(_gat)!='object')document.write('<sc'+'ript src="http'+
+(document.location.protocol=='https:'?'s://ssl':'://www')+
+'.google-analytics.com/ga.js"></sc'+'ript>')</script>
+<script type="text/javascript">
+try {
+var gwoTracker=_gat._getTracker("UA-252376-7");
+gwoTracker._trackPageview("/2342355866/goal");
+}catch(err){}</script>
+<!-- End of Google Website Optimizer Conversion Script -->
+
+
+	
+	</body> 
+	
+</html>

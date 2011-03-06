@@ -1,0 +1,77 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Collaborative Doodle Pad - Sneffel</title>
+		
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>the beta</span>)</h1>
+			<h1>Changing online education.</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+		
+		
+<h1>About Sneffel</h1>
+
+<p>Sneffel changes online education and distance learning.  It turns static course content into real time collaboration, so that you can work with your other students and teachers.  The first beta app is a virtual whiteboard (built in HTML5 – using websockets and the canvas tag) that allows one to “replay” their whiteboard as an animation, like this one here:</p>
+
+<!-- START sneffelDoodleEmbed --><div id="sneffelDoodleEmbed24252"><script type="text/javascript" src="http://www.sneffel.com/Sneffel/embedjs.jsp?replay=1&roomId=24252&sneffelWidth=750&sneffelHeight=600"/></script></div><!-- END sneffelDoodleEmbed -->
+
+<p>Users can embed these doodle pads into their own websites, and even customize the color and header image. </p>
+
+<p>Sneffel was written by Matthew Eric Bassett, a student at the University College London, who hopes that it'll help him pay for school. (As of late July 2010, he can't even pay rent!)</p>
+ 
+  
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6JL53QPMW4L9C">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+ 
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

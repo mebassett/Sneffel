@@ -1,0 +1,140 @@
+ <!DOCTYPE html> 
+ 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Changing online education - Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+
+
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery-ui.js" ></script>
+		<script type="text/javascript" src="/resources/home.js" ></script>
+		<style>
+nav a, nav a:visited
+			{
+				font-family: "headerNav",verdana, sans-serif;
+				color: #FFE7E3;
+				margin-left:10px;
+				padding:8px;
+				
+				background-color:#A65242;
+					-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+
+			}
+			nav a:hover
+			{
+				color: #FFE7E3;
+				background-color:#BFA7A3;
+			} 				
+		</style>
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			</head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<?php
+	$s = $app->db->prepare("select count(id) as num from DoodleBoard where 1");$s->execute();$num=$s->fetchObject();
+?>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>changing online education</span>)</h1>
+			<h1><?=$num->num?> SneffelBoards served.</h1>
+		</header>
+		
+		
+		<div class="main">
+		
+		
+		<h1>Sneffel lets online students interact with each other.</h1>
+		<article>
+			<contentBox>
+		
+				<nav class="home">
+		 			<a href="/signup" >create SneffelSchool</a> 	
+				</nav>
+				<p><small>A SneffelSchool subscription costs $250 USD for 3 months.  There is also a 14 day free trial.</small></p>
+				<p>or <a href="/new">create a new SneffelBoard</a> for free.</p>
+				
+			</contentBox>
+			<aside>
+			Watch Video:
+<object width="520" height="313">
+	<param name="movie" value="htp://www.youtube.com/v/Dxj-WJezHXg&color1=0xb1b1b1&color2=0xd0d0d0&hl=en_US&feature=player_embedded&fs=1" />
+	<param name="allowFullScreen" value="true" />
+	<param name="allowScriptAccess" value="always" />
+	<embed src="http://www.youtube.com/v/Dxj-WJezHXg&color1=0xb1b1b1&color2=0xd0d0d0&hl=en_US&feature=player_embedded&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="520" height="313" />
+</object>
+
+<p><small>You can see an example of a SneffelSchool by visiting the <a href="http://community.sneffel.com">Sneffel Community</a>.</small></p>
+			</aside>
+			
+		</article>
+		
+		<featuredOn>
+			Sneffel has been featured on:
+			<ul>
+												   <li><a href="http://www.appvita.com/2010/08/29/sneffel-helping-online-educators/">AppVita</a> - Aug 2010</li>
+				<li><a href="http://www.makeuseof.com/dir/sneffel-web-based-whiteboard/">MakeUseOf</a> - July 2010</li>
+				<li><a href="http://gvccooltools.blogspot.com/2010/08/virtual-whiteboard.html">GlobalVirtualClassroom</a> - Aug 2010</li>
+				<li><a href="http://sh-consultancy.blogspot.com/2010/08/sneffel-it-virtual-drawing-pad-that.html">Paul Simbeck-Hampson's blog</a> - Aug 2010</li>
+				<li><a href="http://www.killerstartups.com/Web-App-Tools/sneffel-com-a-whiteboard-for-the-sharing-of-ideas">KillerStartups</a> - July 2010</li>
+				<li>and others!</li>
+			</ul>
+		</featuredOn>
+		
+
+
+
+
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+		<div id="boxes">		
+
+			
+			<div id="mask"></div>  
+		</div>
+
+
+<!-- Google Website Optimizer Tracking Script -->
+<script type="text/javascript">
+if(typeof(_gat)!='object')document.write('<sc'+'ript src="http'+
+(document.location.protocol=='https:'?'s://ssl':'://www')+
+'.google-analytics.com/ga.js"></sc'+'ript>')</script>
+<script type="text/javascript">
+try {
+var gwoTracker=_gat._getTracker("UA-252376-7");
+gwoTracker._trackPageview("/2342355866/test");
+}catch(err){}</script>
+<!-- End of Google Website Optimizer Tracking Script -->
+	
+	</body> 
+	
+</html>

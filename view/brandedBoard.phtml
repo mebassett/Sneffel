@@ -1,0 +1,171 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title><?=$board->name?> - Sneffel</title>
+		
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/whiteboardLight.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" media="screen" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/resources/css/colorpicker.css" />
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+				<script src="/resources/excanvas.js"></script>
+		<![endif]--> 
+		
+		
+
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery-ui.js" ></script>
+
+		<script type="text/javascript" src="/jscolor/jscolor.js"></script>
+		<script type="text/javascript" src="/resources/swfobject.js"></script>
+		<script type="text/javascript" src="/resources/FABridge.js"></script>
+		<script type="text/javascript" src="/resources/web_socket.js"></script>		
+		<script type="text/javascript" src="/resources/DoodleBoard.js" ></script>
+		<script type="text/javascript" src="/resources/whiteboard.js" ></script>
+		<script>
+			var roomId=<?=$roomId?>;
+			heightAdjust = <?=$heightAdjust?>;
+		</script>
+		<style type="text/css">
+
+			
+			body{
+	margin:0; padding:0;
+	font-family: "myfont2",verdana, sans-serif;
+	background-color:#<?=$board->backgroundColor?>;text-align:center;
+	height:100%;}
+			header{
+	padding:0;text-align:center;
+}
+div#controls {
+background-color: #<?=$board->backgroundColor?>; /* for non-css3 browsers */
+width:<?=$width?>px;height:<?=$height?>;
+}
+		</style>			
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<?php if($board->brandImage) {?>
+				<img src="<?=$board->brandImage?>" alt="Sneffel (Virtual Paper)"/>
+			<?php } ?>
+		</header>
+				<!--[if lt IE 9]>
+				<strong>Sneffel requires a browser that supports the Canvas tag and WebSockets, such as Firefox, Chrome, or Safari.</strong>
+				<![endif]--> 			
+		<div id="controls">
+	
+			<section>
+				<button id="drawButton" class="buttonClick"></button>
+				<button id="eraseButton"></button>
+				
+				<div id="slider"></div>
+				<div id="showSize">1</div>
+				<input id="penColor" name="penColor" class="color" value="<?=$color?>"  />
+				<button id="uploadButton"></button>
+			</section>
+
+			<div id="drawPadBox">				
+				<canvas id="drawPad" width="2000" height="2000">
+					no canvas support
+				</canvas>
+			</div>
+			<div class="bottomControls">
+				
+				<form target="formHelper" method="post" action="/opPostText">
+					<label id="usersOnline">1 Person drawing.</label> 
+					<input type="hidden" id="formSize" name="formSize" value="1" /> 
+					<input type="hidden" id="formColor" name="formColor" value="<?=$color?>" />					
+					<input class="textPost" name="text" type="text" value="insert text here (\LaTeX works!)" />
+					<input name="submit" id="submitButton" type="submit" value="Post" />
+				</form>
+			</div>
+		</div>
+		
+		
+
+					
+		
+		<footer>
+			<nav>			
+				<ul>
+						<li>  
+							<a href="/replay/<?=$roomId?>">replay</a>
+						</li>
+						<li>  
+							<a href="/new">new board</a>
+						</li>
+					<?php if($user->id < 0) {?>
+
+						<li>  
+							<a href="/login">login</a>
+						</li>
+						<li>  
+							<a href="/signup">sign up</a>
+						</li>
+					<?php }else{  ?>
+						<li>  
+							<a href="/dashboard">control panel</a>
+						</li>
+						<li>  
+							<a href="/logout">logout</a>
+						</li>												
+					<?php } ?>
+					
+				</ul>		
+			</nav>
+				
+						<div id="invite">
+   				Invite your friends to join - just send them this URL:
+                <input type="text"  readonly="readonly" value="<?=$inviteText?>" />
+                <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.sneffel.com%2F<?=$roomId?>&amp;layout=button_count&amp;show_faces=true&amp;width=280&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:280px; height:21px;" allowTransparency="true"></iframe>
+			</div>
+			<div id="embed">
+				Embed code:<br/>
+				<input type="text"  readonly="readonly" value="<?=htmlspecialchars($embedText)?>" /><br/>
+				<a href="/boardCreator">Create your own custom-branded board.</a>
+			</div>							
+			
+				<?php include "copy.inc.phtml"; ?>					
+		</footer>
+		
+			
+		<div id="boxes">		
+			<div id="uploadBox" class="window">		
+				<form id="uploadPic" enctype="multipart/form-data" target="formHelper" action="/opUploadBoardPic" method="post">				
+					<label for="boardPic">Upload Picture</label>
+					<input id="boardPic" name="boardPic" type="file"  />
+					<input type="submit" name="upload" value="Upload" class="button"/>						
+				</form>		
+				<p><a href="#" class="close">Cancel</a></p>
+			</div>
+			<div id="loading" class="window">
+				Sneffel is loading your whiteboard.
+			</div>
+			<div id="error" class="window">
+				<h1>Oops.</h1>
+				<p id="errMsg">Something has went terribly wrong.  Please try again. Sorry.</p>
+
+			</div>
+			
+			<div id="mask"></div>  
+		</div>
+
+
+
+		<iframe id="formHelper" onload="onHelperLoad();" name="formHelper" style="margin-left:-10000px;display:none;visibility:hidden;height:1px;" on></iframe>
+ 
+		<iframe id="loader" onload="onLoader();" name="loader" style="margin-left:-10000px;display:none;visibility:hidden;height:1px;" on></iframe>
+
+	
+	</body> 
+	
+</html>

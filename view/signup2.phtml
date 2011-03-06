@@ -1,0 +1,172 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Signup | Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+		
+		<style type="text/css">
+			div {text-align: left;overflow: auto;}
+			
+
+			div > article > form
+			{
+				
+				
+				
+				width:400px;
+				margin-left:0;
+				float:left;
+				border-right: 1px solid #adbbd2;
+				
+				
+			}
+			div > section {margin-top:30px;width:100%;float:left;}
+			div > article > aside
+			{
+				
+				padding-left:10px;
+				width:500px;
+				float:left;
+				font-size: 1.2em;
+			}
+			div > article > aside h1
+			{
+				margin-top:0;margin-bottom:0;
+				
+			}
+			div > article > aside p, div > article > aside li
+			{
+				margin-top:8px;margin-bottom:8px;
+				
+			}
+			
+			div > article > form input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;
+				margin-bottom:16px;
+				
+			}
+			div > article > form label
+			{
+				display:block;
+				font-size: 1.4em;
+			}
+			p.error{color:red;}
+		</style>
+		
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script>
+			$(document).ready(function() 
+			{				
+				$("#priceList").hide();
+				$("#pricing").click(function (e){					
+					e.preventDefault(); 
+					$("#priceList").slideToggle('slow');
+				});
+				$("#domain").change(function (e){
+					e.preventDefault();
+					$(".schoolTag").html($(this).val());
+				});
+			});
+		</script>
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+				<h1 class="logo">Sneffel (<span>changing online education</span>)</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+			<h1>SneffelSchool Signup - Step 2 of 3</h1>
+			<h2>Admin info for <em><?=$schoolName?> @ <?=$domain?>.sneffel.com</em>.</h2>
+			<article>
+				
+					<form action="signup" method="post">
+								<?php if($errStr) { ?> 
+								<p class="error"><strong>Error: <?=$errStr?></strong></p>	
+								<?php }?>
+
+								<label for="name">administrator name</label>
+								<input id="name" name="name" value="<?=$name?>" />
+
+								<label for="email">administrator login email</label>
+								<input id="email" name="email" type="email" value="<?=$email?>"/>		
+	
+		
+								<label for="password">password</label>
+								<input id="password" name="password" type="password" />
+								
+								<label for="password2">password again</label>
+								<input id="password2" name="password2" type="password" />
+	
+								<input type="hidden" name="schoolName" value="<?=$schoolName?>" />								
+								<input type="hidden" name="domain" value="<?=$domain?>" />
+								
+								
+								
+								<input type="submit" name="signup" value="Step 3" class="button"/>		
+						
+					</form>
+				
+	 			
+	 				<aside>
+	 		
+	 					<p>Sneffel will never spam you or give out your email, though we may send you important updates about your SneffelSchool.</p>
+	 					
+	 					<p>If you need any help with Sneffel, please contact <em>Matthew Eric Bassett</em>.  You can reach him at:
+	 					<ul>
+	 						<li><a href="mailto:matthew@sneffel.com">matthew@sneffel.com</a></li>
+	 						<li>US Phone: +1 (719) 266-2314</li>
+	 						<li>UK Phone: +44 (0) 779 022 2985</li>	 						
+	 					</ul>
+	 					</p>
+	 				</aside>
+	 			
+ 			
+ 			</article>
+ 			
+
+ 			
+ 	
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

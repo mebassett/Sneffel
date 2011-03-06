@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+		<title>?=$board->name?> - Sneffel Embedded Board</title>
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/whiteboardEmbed.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" media="screen" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/resources/css/colorpicker.css" />
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery-ui.js" ></script>
+		<script type="text/javascript" src="/jscolor/jscolor.js"></script>
+		<script>
+			var roomId=<?=$boardId?>;
+			var sneffelWidth=<?=$board->width?>;
+			var sneffelHeight=<?=$board->height - $heightAdjust - 16?>;
+$(document).ready(function() 
+{
+	$("#drawPadBox").css("width",sneffelWidth-32);	
+	$("#drawPadBox").css("height",sneffelHeight-45);
+	$("#controls").css("width",sneffelWidth);	
+	$("#controls").css("height",sneffelHeight);	
+	$('input.textPost').css("width",sneffelWidth-254);
+});			
+		</script>
+		<style type="text/css">
+
+			
+			body{
+	margin:0; padding:0;
+	font-family: "myfont2",verdana, sans-serif;
+	background-color:#<?=$board->backgroundColor?>;text-align:center;
+	height:100%;}
+			header{
+	padding:0;<?php if($heightAdjust) { ?> height:<?=$heightAdjust?>; <?php } ?>;text-align:center;
+}
+div#controls {
+background-color: #<?=$board->backgroundColor?>; /* for non-css3 browsers */
+width:<?=$width?>px;height:<?=$height?>;
+}
+		</style>		
+	<?php include "google.phtml"; ?></head>
+	<body>
+	<?php if($board->brandImage) { ?> 
+		<div class="header">
+			<img src="<?=$board->brandImage?>" alt="Branded Logo"/>
+		</div>
+	<?php } ?>
+				<!--[if lt IE 9]>
+				<strong>Sneffel requires a browser that supports the Canvas tag and WebSockets, such as Firefox, Chrome, or Safari.</strong>
+				<![endif]--> 			
+		<div id="controls">
+	
+			<section>
+				<button id="drawButton" class="buttonClick"></button>
+				<button id="eraseButton"></button>
+				
+				<div id="slider"></div>
+				<div id="showSize">1</div>
+				<input id="penColor" name="penColor" class="color" value="<?=$color?>"  />
+				<button id="uploadButton"></button>
+			</section>
+
+			<div id="drawPadBox">				
+				<canvas id="drawPad" width="2000" height="2000">
+					no canvas support
+				</canvas>
+			</div>
+			<div class="bottomControls">
+				
+				<form target="formHelper" method="post" action="/opPostText">
+					<label id="usersOnline">1 Person drawing.</label> 
+					<input type="hidden" id="formSize" name="formSize" value="1" /> 
+					<input type="hidden" id="formColor" name="formColor" value="<?=$color?>" />					
+					<input class="textPost" name="text" type="text" value="insert text here (\LaTeX works!)" />
+					<input name="submit" id="submitButton" type="submit" value="Post" />
+				</form>
+			</div>
+		</div>
+		
+
+	
+	</body> 
+	
+</html>
+		

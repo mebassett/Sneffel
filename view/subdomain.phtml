@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title><?=$school->schoolName?> - Sneffel</title>
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />	
+		<link rel="stylesheet" type="text/css" href="/resources/subdomain.css" media="screen" />
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+				<script src="/resources/excanvas.js"></script>
+		<![endif]--> 		
+		<style type="text/css">			
+			body{
+				margin:0; padding:0;
+				font-family: "myfont2",verdana, sans-serif;
+				background-color:#<?=$school->bgColor?>;text-align:center;height:100%;}
+			header{
+				padding:0;text-align:center;}
+			
+			article {text-align:center;width:100%; padding-bottom: 150px;}
+			table {text-align:center;margin:auto;}
+			table td {padding:20px; border:0px}
+			td img{ padding:5px; border:1px solid black;}
+			h1 {font-weight:normal;}
+
+		</style>			
+	<?php include "google.phtml"; ?></head>
+	<body>
+			<header>
+			<?php if($school->bgImg) {?>
+				<img src="<?=$school->bgImg?>" alt="Sneffel (<?=$school->schoolName?>)"/>
+			<?php } ?>
+			<h1 class="school"><?=$school->schoolName?> real-time learning environment.</h1>
+		</header>
+				<!--[if lt IE 9]>
+				<strong>Sneffel requires a browser that supports the Canvas tag and WebSockets, such as Firefox, Chrome, or Safari.</strong>
+				<![endif]--> 
+		<nav style="width:100%;text-align:center">		
+			<ul>
+				<li><a href="/new">create new board</a></li>
+			</ul>
+		</nav>	
+		
+		<article>
+		
+			<?php if(count($boards) > 0) { 	$count = 0;  ?>
+				<table>
+				<?php foreach($boards as $board) { 
+					if ($count == 0) {?>
+						<tr>
+					<?php } ?>
+					
+							<td>
+								<a class="img" href="<?=$board->getNameUrl($school->domain.".sneffel.com")?>"><img src="/imgData/<?=$board->id?>-thumb.png" /></a><br/>
+								<a href="<?=$board->getNameUrl($school->domain.".sneffel.com")?>"><?=($board->name) ? urldecode($board->name) : "[board #".$board->id."]"?></a><br/>
+								(<?=$board->users?> <?= $board->users == 1 ? "person" : "persons" ?> editing.) 
+							</td>
+					
+					<?php $count++;
+					if($count == 4) { $count=0;?>
+						</tr>
+					<?php } ?>
+					
+				<?php } ?>	
+				
+				</table>
+				
+			<?php }else{ ?>
+				<h1>This SneffelSchool doesn't yet have any boards.  Why don't you get started now by clicking "create new board"?</h1>
+			<?php } ?>
+		
+		
+		</article>
+		<footer>
+		<p>SneffelSchool Administrator: <?=$school->contactName?><br/>This subscription expires on <?=date("d M Y",$school->expireDate)?>.<br/>Renew Subscription:</p>
+		<?php include "paypal.inc.phtml"; ?>
+		
+		<p>Powered by <a href="http://www.sneffel.com">Sneffel</a>.</p> 
+		<?php include "copy.inc.phtml"; ?>	
+		</footer>
+	</body>
+	</html>				

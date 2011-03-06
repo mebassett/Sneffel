@@ -1,0 +1,197 @@
+@font-face {
+  font-family: "headerNav";
+  src: url(/resources/aristalight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "myfont2";
+  src: url(/resources/LondonBetween.ttf) format("truetype");
+}
+
+
+
+header > h1.logo{font-family: "headerNav",verdana, sans-serif;padding:16px 0px 0px 0px;margin:0;font-size:32px;}
+
+header > h1.logo > span {padding:16px 0px 0px 0px;margin:0;font-size:32px;color:#000000;}
+
+header > h1 {
+	font-family:  "myfont2",Helvetica,sans-serif; font-size:16px; margin:0; padding-bottom:16px;;
+}
+
+header > h1.school {
+	font-family:  "myfont2",Helvetica,sans-serif;font-size:32px;
+}
+
+
+div#controls > section
+{
+	float:left;
+	width:32px;
+}
+div#controls > section > div
+{
+	margin: 10px auto 0px auto;	
+	color:#000000;
+}
+div#controls > section > input#penColor
+{
+	width:28px;height:32px;margin-top:8px;
+}
+div#controls > section > button
+{
+	width:32px;height:32px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#drawButton {background-image: url(/resources/draw.png);}
+#eraseButton {margin-top:2px;background-image: url(/resources/erase.png);}
+#uploadButton {margin-top:2px;background-image: url(/resources/pic.png);}
+.buttonClick {border: 2px solid blue;}
+
+div#drawPadBox{
+	overflow:auto;
+	
+	width:100%;
+	height:200px;
+	background-color:#ffffff;
+	margin:0px 0px 0px 32px;padding:0;
+}
+div#drawPadBox > img {width:100px;height:100px;z-index:1999;}
+
+div#drawPadBox > canvas {background-color:transparent;z-index:999;cursor:url("/resources/draw.png"),pointer;}
+
+div#drawPadBox > canvas.erase {cursor:url("/resources/erase.png"),pointer;}
+div#drawPadBox > canvas.clicker {cursor:default;}
+
+div#controls > div.bottomControls
+{
+	color:#000000;
+	text-align:left;
+	margin-left:32px;
+	height:45px;
+}
+div#controls > div.bottomControls > label
+{
+	margin:0;  padding:0;	
+}
+div#controls > div.bottomControls > form
+{
+	margin:0;  padding-top:5px;	
+}
+div#controls > div.bottomControls > form > input
+{
+	font-size:1.2em;	
+}
+div#controls > div.bottomControls > form > input[type="text"]
+{
+	width:85%;height:28px;
+	font-size:1.2em;
+}
+footer
+{
+	background-color:#8adaf3;
+	position:absolute;bottom:0;left:0;
+	width:100%;min-width:950px;
+	text-align:center;
+}
+
+ nav 
+{
+	font-family: "headerNav",verdana, sans-serif;
+}
+ nav > ul
+{
+	margin: 15px 15px 15px 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+ nav > ul > li
+{
+	display:inline;			
+}
+
+ nav a,  nav a:visited
+{
+	color: #19A0CC;
+	margin-left:10px;
+	padding:8px;
+	font-size:1.4em;
+	background-color:#C9EDF9;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+ nav a:hover
+{
+	color: #0F5F79;
+	background-color:#19A0CC;
+} 
+
+
+footer > p
+{
+	margin:0px;
+	padding:5px;
+	font-size: 0.8em;
+}
+footer > p >  a, footer > p > a:visited
+{
+	color: #19A0CC;
+	
+}
+footer > p > a:hover
+{
+	color: #0F5F79;
+}
+
+#invite{position:absolute;bottom:4px;left:20px;width:300px;padding-top:5px;
+	background-color:#19A0CC;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;color:#ffffff;}
+#embed{position:absolute;bottom:4px;right:20px;width:300px;background-color:#19A0CC;padding-top:5px;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;color:#ffffff;
+	}#views{position:absolute;top:4px;left:4px;width:300px;background-color:#19A0CC;padding:5px;
+		-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;color:#ffffff;
+	}
+	
+#embed > input {width:250px;}
+
+ #mask {  
+   position:absolute;top:0;left:0;  
+   z-index:9000;  
+   background-color:#000;  
+   display:none;  
+ }  
+     
+ #boxes .window {  
+   position:absolute;  
+   width:440px;  
+   height:200px;  
+   display:none;  
+   z-index:9999;  
+   padding:20px;  
+   color:#ffffff;
+ }  
+ 
+ #boxes .diagBox
+ {
+   position:absolute;  
+   padding:20px;
+   width:400px;  
+   height:60px;  
+   display:none;  
+   z-index:9999; 
+	background-color:#C9EDF9;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;  	
+	color: #0F5F79;
+ }
+   
+   
+ /* Customize your modal window here, you can add background image too */  
+ #boxes #dialog {  
+   width:375px;   
+   height:203px;  
+ }  

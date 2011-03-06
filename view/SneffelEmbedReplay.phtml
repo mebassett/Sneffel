@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+		<title>?=$board->name?> - Sneffel Embedded Board</title>
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/replayEmbed.css" media="screen" />
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery.preload.js" ></script>
+		<script type="text/javascript" src="/resources/swfobject.js"></script>
+		<script type="text/javascript" src="/resources/FABridge.js"></script>
+		<script type="text/javascript" src="/resources/web_socket.js"></script>		
+		<script type="text/javascript" src="/resources/DoodleBoard.js" ></script>
+		<script type="text/javascript" src="/resources/ReplayEmbed.js" ></script>	
+		<script>
+			var roomId=<?=$roomId?>;
+			var sneffelWidth=<?=$width?>;
+			var sneffelHeight=<?=$height?>;
+			var picturesLoaded=false;
+			function startPreload()
+			{
+				var urls=<?=$imgText?>;
+				$.preload(urls,{onFinish:function(){
+					picturesLoaded=true;
+					if(socket.readyState ==1)
+						socket.send('{"type":"SYSreplayBoard","roomId":'+roomId+'}');
+					$('#mask, .window').hide();
+				}});
+			}			
+		</script>
+		<style type="text/css">
+
+			
+			body{
+	margin:0; padding:0;
+	font-family: "myfont2",verdana, sans-serif;
+	background-color:#<?=$board->backgroundColor?>;text-align:center;
+	height:100%;}
+			header{
+	padding:0;<?php if($heightAdjust) { ?> height:<?=$heightAdjust?>; <?php } ?>;text-align:center;
+}
+div#controls {
+background-color: #<?=$board->backgroundColor?>; /* for non-css3 browsers */
+width:<?=$width?>px;height:<?=$height?>;
+}
+		</style>		
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<img src="<?=$board->brandImage?>" alt="<?=$board->name?>"/>
+		</header>
+				<!--[if lt IE 9]>
+				<strong>Sneffel requires a browser that supports the Canvas tag and WebSockets, such as Firefox, Chrome, or Safari.</strong>
+				<![endif]--> 			
+		<div id="controls">
+	
+			<div id="drawPadBox">				
+				<canvas id="drawPad" width="2000" height="2000">
+					no canvas support
+				</canvas>
+			</div>
+			<div class="bottomControls">
+				<button id="restart">Start over!</button>
+				<span id="marker">0&#37; Complete.</span>
+			</div>
+		</div>
+
+		<div id="boxes">		
+
+			<div id="error" class="window">
+				<h1>Oops.</h1>
+				<p id="errMsg">Something has went terribly wrong.  Please try again. Sorry.</p>
+
+			</div>
+							<div id="loading" class="window">
+				Sneffel is loading your whiteboard.
+			</div>		
+			<div id="mask"></div>  
+		</div>
+
+	
+	</body> 
+	
+</html>
+		

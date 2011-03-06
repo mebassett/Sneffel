@@ -1,0 +1,126 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Board Creator | Sneffel</title>
+		
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/newstyle2.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/boardCreator.js" ></script>
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+		<style type="text/css">
+			div > article , div > article >form
+			{
+				
+			}
+			div > article > form div {width:100%;margin:0;padding:0;overflow: auto;}
+			
+			div > article > form div input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;
+				margin-bottom:16px;
+				float:left;
+			}
+			div > article > form div label
+			{
+				display:block;
+				font-size: 1.4em;
+				float:left;
+				margin-top:10px;margin-right:8px;
+			}		
+			div > article > div input
+			{
+				height:32px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				font-size: 1.4em;				
+			}	
+			div > article > div span
+			{
+			font-size: 1.4em;	margin-top:10px;margin-right:8px;
+			}
+			div#done {visibility:hidden;}
+			span.error {color:red;font-weight:bold;}
+		</style>
+		<script type="text/javascript" src="jscolor/jscolor.js"></script>
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+
+			<h1 class="logo">Sneffel (<span>the beta</span>)</h1>
+			<h1>Changing online education.</h1>
+			<?php include "nav-standard.inc.phtml"; ?>
+		</header>
+		
+		<div class="main">
+		<h1>Board Creator - Step 1 of 2</h1>
+		<p>Sneffel lets you design and custom-brand a board to use or embed into your websites.</p>
+		
+		<article>
+			<form id="editForm" enctype="multipart/form-data" target="formHelper" action="/operationPreviewBoard" method="post">
+			
+				<div><label for="boardName">Board Name</label>
+				<input id="boardName" name="boardName" value="<?=$boardName?>" /> <span class="error" id="errorName"></span></div>
+				
+				<div><label for="boardColor">Background Color Name</label>
+				<input id="boardColor" name="boardColor" class="color"  /></div>
+				
+				<div><label for="boardPic">Your logo</label>
+				<input id="boardPic" name="boardPic" type="file"  />
+				<input type="submit" name="upload" value="Preview" class="button"/>	</div>
+				
+			</form>
+
+		</article>
+		
+		<article>
+		<h2>Preview</h2>
+		<p>This whiteboard is disabled; its just a preview.</p>
+		<iframe id="previewBox" style="border:0px;width:750px;height:750px;"></iframe>
+		<br/><br/>
+			<div id="done">
+			<form action="/boardCreator" method="post">
+			<input type="hidden" id="boardIdInput" name="boardId" value="0"/>
+			<span>Satisified?</span> <input type="submit" name="next" value="Step 2" class="button"/>
+			</form></div>		
+		</article>
+	
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+	<iframe id="formHelper" onload="onHelperLoad();" name="formHelper" style="margin-left:-10000px;display:none;visibility:hidden;height:1px;" on></iframe>
+
+	
+	</body> 
+	
+</html>

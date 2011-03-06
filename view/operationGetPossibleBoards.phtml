@@ -1,0 +1,8 @@
+<?php if(count($possibleBoards) > 0) { ?>
+	<h2>Are any of these your whiteboards?</h2>
+	<p>
+		<?php foreach($possibleBoards as $item) { ?>
+			<a href="/<?=$item->id?>">Board #<?=$item->id?></a> - <a href="/claimBoard?boardId=<?=$item->id?>">claim</a><br/>
+		<?php }?>
+	</p>
+<?php } ?> 

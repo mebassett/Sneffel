@@ -1,0 +1,67 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Changing Online Education - Sneffel.com</title>
+		
+		<meta name="description" content="Sneffel lets you draw, brainstorm, collaborate, or just have fun with a simple, easy to use whiteboard." />
+		<meta name="keywords" content="real time collaboration, whiteboard, drawing, fun" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			<?php include "google.phtml"; ?></head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>the beta</span>)</h1>
+			<h1>Changing online education.</h1>
+		</header>
+		
+		<div class="main">
+		
+		
+<h1>Oops.</h1>
+<h2>This SneffelSchool, <?=$school->schoolName?>, is out of its subscription.</h2>
+
+			<p>You can continue its subscription for <strong>3 months</strong> for $250 USD.</p>
+			
+<?php include "paypal.inc.phtml"; ?>
+
+<p>School contact: <?=$school->contactName?>.<br/>
+Sneffel Contact: Matthew Eric Bassett, matthew [at] sneffel.com
+</p>
+
+
+
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+
+
+
+	
+	</body> 
+	
+</html>

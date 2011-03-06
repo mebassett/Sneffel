@@ -1,0 +1,136 @@
+ <!DOCTYPE html> 
+<html lang="en"> 
+	<head>
+	<!-- handcrafted in html5 by Matthew Eric Bassett/gegn corp - http://mebassett.gegn.net -->
+	
+
+		<title>Changing online education - Sneffel</title>
+		
+		<meta name="description" content="Sneffel is a beta web app that changes online education through real time collaboration." />
+		<meta name="keywords" content="real time collaboration,education , whiteboard, drawing, fun" />
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				
+		<link rel="shortcut icon" href="/favicon.gif" />		
+
+
+		<link rel="stylesheet" type="text/css" href="/resources/home.css" media="screen" />
+		<script type="text/javascript" src="/jquery.js" ></script>
+		<script type="text/javascript" src="/resources/jquery-ui.js" ></script>
+		<script type="text/javascript" src="/resources/home.js" ></script>
+
+		<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<!--[if lte IE 6]>
+			<link type="text/css" rel="stylesheet" href="css/obsolete.css">
+			</head>
+			<body>
+				<h6>This site looks best in a modern browser, such as the latest versions of Chrome, Safari, or Firefox</h6>
+		<![endif]--> 
+
+		
+	<?php include "google.phtml"; ?></head>
+	<?php
+	$s = $app->db->prepare("select count(id) as num from DoodleBoard where 1");$s->execute();$num=$s->fetchObject();
+?>
+	<body>
+		<header>
+			<h1 class="logo">Sneffel (<span>changing online education</span>)</h1>
+			<h1><?=$num->num?> SneffelBoards served.</h1>
+		</header>
+		
+		
+		<div class="main">
+		
+		
+<h1>Sneffel lets online students interact with each other.</h1>
+
+<div class="box" style="font-size:1.5em">
+
+It's a virtual drawing pad that lets student and teachers collaborate.<br/><br/>
+It's a collaborative equation editor that lets students engage each other.<br/><br/>
+It records your work and lets you replay it again and again.
+
+</div>
+
+<div class="links">
+	<a href="/new">new board</a> <a href="/boardCreator">custom board</a>
+	<?php if($user->id > 0) { ?>
+		<a href="/dashboard">control panel</a> <a href="/logout">logout</a>		
+	<?php }else { ?>
+		<a href="/login">login</a> <a href="/signup">sign up</a> 
+	<?php } ?>
+</div>
+
+<div class="box">
+Sneffel is currently in beta and you can create a new SneffelBoard for free. If you're interested in using Sneffel in your school, please contact Matthew: matthew [at] sneffel [dot] com.  Additionally, if you'd like to support Sneffel, please feel free to <strong>donate</strong>.
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6JL53QPMW4L9C">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+</div>
+
+
+<p  style="font-size:1.4em;margin-bottom:10px;">See how to use Sneffel to:</p>
+		
+			<div id="vid1" style="text-align:center;">					
+					<object width="700" height="560">
+					<param name="movie" value="http://www.youtube.com/v/SJwSknvHe8k&amp;hl=en_US&amp;fs=1" />
+					<param name="allowFullScreen" value="true"/>
+					<param name="allowscriptaccess" value="always"/>
+					<embed src="http://www.youtube.com/v/SJwSknvHe8k&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="700" height="560"/>
+				</object>			
+			</div>
+			<div id="vid2" style="text-align:center;">
+				<object width="700" height="560">
+					<param name="movie" value="http://www.youtube.com/v/EDLIKMgPj5I&amp;hl=en_US&amp;fs=1" />
+					<param name="allowFullScreen" value="true"/>
+					<param name="allowscriptaccess" value="always"/>
+					<embed src="http://www.youtube.com/v/EDLIKMgPj5I&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="700" height="560"/>
+				</object>
+			</div>
+			<div id="vid3" style="text-align:center;">
+				<object width="700" height="560">
+					<param name="movie" value="http://www.youtube.com/v/LixaMv1xMrk&amp;hl=en_US&amp;fs=1" />
+					<param name="allowFullScreen" value="true"/>
+					<param name="allowscriptaccess" value="always" />
+					<embed src="http://www.youtube.com/v/LixaMv1xMrk&amp;hl=en_US&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="700" height="560"/>
+				</object>
+			</div>
+
+<div style="text-align:center; font-size:1.2em">
+<a href="#vid1" class="modal">create a custom drawing pad.</a> - <a href="#vid2" class="modal">collaborate with a friend.</a> - <a href="#vid3" class="modal">build a mathematics presentation.</a>
+</div>
+
+
+
+
+
+
+
+		</div>
+
+		
+		<footer>
+
+				
+			
+			<?php include "copy.inc.phtml"; ?>			
+		</footer>
+
+		<div id="boxes">		
+
+			
+			<div id="mask"></div>  
+		</div>
+
+
+	
+	</body> 
+	
+</html>

@@ -1,0 +1,33 @@
+<?php
+	if(!(array_key_exists('boardId',$_GET) && is_numeric($_GET['boardId'])))
+		die("invalid Board");
+		
+	$board = Whiteboard::getById($_GET['boardId']);
+	if(!$board || $board->userId != $user->id)
+		die("invalid Board");
+
+	if($user->credit < priceBrandBoard)
+	{
+		header("Location: /purchase?err=priceBrandBoard");
+		exit;
+	}	
+		
+	if(array_key_exists('confirm',$_POST))
+	{
+		$user->chargeCredits(priceBrandBoard);
+		if($board->expireDate < time())		
+		{	$s = $app->db->prepare("update DoodleBoard set expireDate = :t where id=:i");
+			$time = time()+30*86400;	
+		}else
+		{
+			$s = $app->db->prepare("update DoodleBoard set expireDate = expireDate + :t where id=:i");
+			$time = 30*86400;
+		}
+		$s->bindParam(':t',$time);
+		$s->bindParam(':i',$board->id);
+		$s->execute();
+		
+		header("Location: /dashboard?err=Reactivate");
+		exit;
+	}
+?>

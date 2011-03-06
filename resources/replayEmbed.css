@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "headerNav";
+  src: url(/resources/aristalight.ttf) format("truetype");
+}
+@font-face {
+  font-family: "myfont2";
+  src: url(/resources/LondonBetween.ttf) format("truetype");
+}
+
+
+
+div#drawPadBox{
+	overflow:auto;
+	
+	width:100%;
+	height:200px;
+	background-color:#ffffff;
+	margin:0;padding:0;
+}
+div#controls > div.bottomControls
+{
+	color:#000000;
+	text-align:center;
+	margin:0;
+	height:35px;
+	padding-top:10px;
+	
+}
+
+ #mask {  
+   position:absolute;top:0;left:0;  
+   z-index:9000;  
+   background-color:#000;  
+   display:none;  
+ }  
+     
+ #boxes .window {  
+   position:absolute;  
+   width:440px;  
+   height:200px;  
+   display:none;  
+   z-index:9999;  
+   padding:20px;  
+ }  
+   
+   
+ /* Customize your modal window here, you can add background image too */  
+ #boxes #dialog {  
+   width:375px;   
+   height:203px;  
+ }  
