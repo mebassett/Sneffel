@@ -11,7 +11,9 @@ require "model/loadSocketApi.php";
 
 ini_set("memory_limit","128M");
 
-$master=new WebSocket("72.44.81.66",443);
+$ip = "127.0.0.1"; //this should be somewhere else, like /model/config
+
+$master=new WebSocket($ip,443);
 class WebSocket
 {
 	var $master;
